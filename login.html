@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>S.I.C.A. - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+    <div class="auth-container">
+        <h2>Bienvenido a S.I.C.A.</h2>
+        <input type="text" id="user-name" placeholder="Nombre Completo" required>
+        <input type="text" id="user-age" placeholder="Edad" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
+        <button type="button" id="btn-login">Sign Up</button>
+    </div>
+
+    <script type="module">
+        import { login } from './app.js';
+        
+        const btn = document.getElementById('btn-login');
+        if(btn) {
+            btn.addEventListener('click', login);
+        }
+    </script>
+</body>
+</html>

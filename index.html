@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>S.I.C.A. - Control de Inventario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-section" class="login-page">
+        <div class="auth-container">
+            <h2>Bienvenido a S.I.C.A.</h2>
+            <input type="text" id="user-name" placeholder="Nombre Completo">
+            <input type="text" id="user-age" placeholder="Edad" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+            <button id="btn-login">Sign Up</button>
+        </div>
+    </div>
+
+    <div id="inventario-section" style="display: none;">
+        <header>
+            <h1>S.I.C.A.</h1>
+            <p>Sistema Inteligente de Control Alimentario</p>
+        </header>
+
+        <div class="info-bar">
+            <div class="info-item"><span>Fecha:</span> <strong id="fecha-actual"></strong></div>
+            <div class="info-item"><span>Usuario:</span> <strong id="nombre-empleado"></strong></div>
+        </div>
+        
+        <main class="main-container">
+            <section class="card">
+                <h2>Registrar Nuevo Lote</h2>
+                <form id="form-producto">
+                    <div class="input-group">
+                        <label>Nombre del Producto</label>
+                        <input type="text" id="producto" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Numero de Lote </label>
+                        <input type="text" id="lote">
+                    </div>
+                    <div class="input-group">
+                        <label>Proveedor</label>
+                        <input type="text" id="proveedor" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Fecha de Caducidad</label>
+                        <input type="date" id="caducidad" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Ubicacion en Almacen</label>
+                        <input type="text" id="ubicacion" placeholder="Ej: Pasillo 2">
+                    </div>
+                    <div class="input-group">
+                        <label>Unidad de Medida</label>
+                        <select id="unidad">
+                            <option value="Piezas">Piezas</option>
+                            <option value="Kilos">Kilos</option>
+                            <option value="Cajas">Cajas</option>
+                        </select>
+                    </div>
+                    <button type="submit">Guardar en Inventario</button>
+                </form>
+            </section>
+
+            <section class="card">
+                <h2>Inventario Priorizado</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PRODUCTO</th>
+                                <th>LOTE</th>
+                                <th>PROVEEDOR</th>
+                                <th>DIAS RESTANTES</th>
+                                <th>ESTADO</th>
+                                <th>UBICACIÓN</th>
+                                <th>UNIDAD</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-inventario"></tbody>
+                    </table>
+                </div>
+                
+                <div class="footer-actions">
+                    <p> productos registrados: <strong id="kpi-total" style="color: #10b981;">0</strong></p>
+                    <button id="btn-salir">Salir</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="custom-alert" class="alert-overlay" style="display: none;">
+        <div class="alert-box">
+            <p>¡Alerta! No se puede registrar un producto con fecha de caducidad vencida.</p>
+            <button onclick="cerrarAlert()">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="thanks-modal" class="alert-overlay" style="display: none;">
+        <div class="alert-box">
+            <h2>¡Gracias!</h2>
+            <p>Tu sesion ha finalizado. ¡Hasta pronto!</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
