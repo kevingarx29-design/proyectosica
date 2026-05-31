@@ -11,7 +11,7 @@ Ejecutable: haz un clic  sobre el index .html para abrirlo en cualquier navegado
 Opcion 2 : ver la versión de la nuve (recomendado)
 Puedes acceder a la versión deplegada en internete aquí :
 
-
+https://proyectosica.netlify.app/
 
 Herramientas que se utilizó:
 HTML estructura del sitio 
